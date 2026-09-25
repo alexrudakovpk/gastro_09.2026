@@ -28,7 +28,6 @@ body{
 button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
 .hidden{display:none !important;}
 
-/* header */
 .top{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:6px;}
 .top .scen{font-size:15px; font-weight:700; color:var(--ink); line-height:1.15;}
 .top .scen small{display:block; font-weight:500; color:var(--dim); font-size:12px;}
@@ -37,24 +36,21 @@ button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
 .btn{background:#22344f; color:var(--ink); border-radius:12px; padding:9px 12px; font-size:13px; font-weight:600; flex:1; text-align:center;}
 .btn.warn{background:#3a2330; color:#ffb3c1;}
 
-/* picker */
 #picker h1{font-size:24px; margin:14px 4px 4px;}
 #picker p.lead{color:var(--dim); font-size:14px; margin:0 4px 18px; line-height:1.4;}
-.scard{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px 16px; margin-bottom:14px; display:flex; align-items:center; gap:14px;}
+.scard{background:var(--card); border:1px solid var(--line); border-radius:18px; padding:16px; margin-bottom:12px; display:flex; align-items:center; gap:14px;}
 .scard:active{background:#20344f;}
-.scard .em{font-size:30px;}
+.scard .em{font-size:30px; width:34px; text-align:center;}
 .scard .t{font-size:18px; font-weight:700;}
 .scard .s{font-size:13px; color:var(--dim); margin-top:3px; line-height:1.35;}
 .note{color:var(--dim); font-size:12px; line-height:1.45; margin:6px 4px 0;}
 
-/* running */
 #run{flex:1; display:flex; flex-direction:column; gap:10px;}
 .slot{border-radius:16px; padding:12px 15px;}
 .slot .lab{font-size:12px; letter-spacing:.4px; text-transform:uppercase; color:var(--dim); margin-bottom:3px;}
 .slot .name{font-size:16px; font-weight:600;}
 .slot .time{font-size:13px; color:var(--dim); margin-top:2px; font-variant-numeric:tabular-nums;}
 .prev,.next{background:#14202f; opacity:.6;}
-.prev .name,.next .name{font-weight:600;}
 .current{background:linear-gradient(160deg,#20365a,#182a45); border:1px solid #35507c; padding:20px 18px; flex:1; display:flex; flex-direction:column; justify-content:center; box-shadow:0 6px 24px rgba(0,0,0,.35);}
 .current .lab{color:#a9c6f2;}
 .current .name{font-size:28px; font-weight:800; line-height:1.15; margin:2px 0 4px;}
@@ -63,7 +59,6 @@ button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
 .bar > i{display:block; height:100%; width:0%; background:linear-gradient(90deg,#4a86d8,#37c07a); transition:width .8s linear;}
 .remain{font-size:14px; color:#bcd0ee; margin-top:9px; font-weight:600;}
 
-/* med chip */
 .medchip{border-radius:16px; padding:13px 15px; background:#1d2c1f; border:1px solid #2f5a3a; display:flex; align-items:center; gap:12px;}
 .medchip .pill{font-size:26px;}
 .medchip .mt{flex:1;}
@@ -72,18 +67,15 @@ button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
 .medchip .mt .c{font-size:13px; color:#a8c8b3; margin-top:1px;}
 .medchip.due{background:#3a2a12; border-color:#8a6320; animation:pulse 1.4s infinite;}
 .medchip.due .a{color:var(--pill);}
-.medchip.due .pill{filter:drop-shadow(0 0 6px rgba(255,209,102,.8));}
 .take{background:var(--green); color:#06301b; font-weight:800; border-radius:12px; padding:10px 14px; font-size:14px;}
 .medchip.done{opacity:.5;}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,182,74,.0);}50%{box-shadow:0 0 0 4px rgba(240,182,74,.18);}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(240,182,74,0);}50%{box-shadow:0 0 0 4px rgba(240,182,74,.18);}}
 
-/* finished */
 .finished{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:10px;}
 .finished .big{font-size:46px;}
 .finished .t{font-size:22px; font-weight:700;}
 .finished .s{color:var(--dim); font-size:14px;}
 
-/* day list */
 .daytoggle{background:#1a2942; color:var(--dim); border-radius:12px; padding:10px; font-size:13px; text-align:center; font-weight:600;}
 #daylist{max-height:46vh; overflow:auto; margin-top:8px; border:1px solid var(--line); border-radius:14px;}
 .di{display:flex; gap:10px; padding:9px 12px; border-bottom:1px solid #1f2f47; font-size:14px; align-items:center;}
@@ -92,9 +84,16 @@ button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
 .di.med{background:#15251a;} .di.med .tt{color:var(--pill);}
 .di.nowrow{background:#20365a;} .di.nowrow .tt{color:#cfe0f7;}
 .di .nm{line-height:1.25;}
-.footnote{color:#5f7392; font-size:11px; text-align:center; margin-top:10px; line-height:1.4;}
-.wl{display:flex; align-items:center; justify-content:center; gap:8px; margin-top:8px; font-size:12px; color:var(--dim);}
-.wl input{width:38px; height:22px;}
+
+/* reminder modal */
+.overlay{position:fixed; inset:0; background:rgba(6,12,22,.78); display:flex; align-items:center; justify-content:center; padding:22px; z-index:50;}
+.modal{background:#182a45; border:1px solid #3a5680; border-radius:20px; padding:22px 20px; max-width:420px; width:100%;}
+.modal h3{margin:0 0 8px; font-size:20px;}
+.modal p{color:#cdddf2; font-size:14.5px; line-height:1.5; margin:0 0 8px;}
+.modal .mrow{display:flex; gap:10px; margin-top:16px;}
+.modal .mrow button{flex:1; border-radius:12px; padding:12px; font-size:14px; font-weight:700;}
+.modal .ok{background:var(--accent); color:#04182f;}
+.modal .later{background:#2a3d5c; color:var(--ink);}
 </style>
 </head>
 <body>
@@ -104,8 +103,8 @@ button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
   <h1>Мой день</h1>
   <p class="lead">Выбери сценарий на сегодня. Он запускается вручную и идёт по реальным часам до 23:00.</p>
   <div id="scards"></div>
-  <p class="note">Приложение не шлёт системных уведомлений (для этого нужен сервер). Оно показывает, где ты сейчас по расписанию, когда откроешь. Ближайший приём лекарства подсвечивается.</p>
-  <p class="note">Совет: «Поделиться» → «На экран Домой», чтобы открывать как приложение на весь экран.</p>
+  <p class="note">Приложение показывает, где ты сейчас по расписанию, и подсвечивает ближайший приём, когда открываешь его. Системных фоновых уведомлений нет.</p>
+  <p class="note">Совет: «Поделиться» → «На экран „Домой“», чтобы открывать как приложение на весь экран.</p>
 </div>
 
 <!-- RUNNING -->
@@ -140,18 +139,43 @@ button{font-family:inherit; cursor:pointer; border:none; color:inherit;}
 
   <div class="daytoggle" id="dayToggle">▾ Показать весь день</div>
   <div id="daylist" class="hidden"></div>
-  <div class="wl"><label><input type="checkbox" id="wakeChk"> не гасить экран, пока открыто</label></div>
-  <div class="footnote" id="foot"></div>
+</div>
+
+<!-- REMINDER -->
+<div id="reminder" class="overlay hidden">
+  <div class="modal">
+    <h3>⏰ Проверь курс лечения</h3>
+    <p>С 24.09 прошёл месяц терапии, назначенной в МКНЦ:</p>
+    <p>• <b>Альфазокс</b> 4 р/день — месячный курс закончился. Оцени эффект и обсуди продолжение с врачом.</p>
+    <p>• <b>Нексиум</b> — по схеме переходишь с 20 мг ×2/день на <b>20 мг ×1/день</b> (утром), ещё на 4 недели.</p>
+    <p>Уточни детали у Дырдаевой на контроле.</p>
+    <div class="mrow">
+      <button class="later" id="remLater">Позже</button>
+      <button class="ok" id="remOk">Больше не показывать</button>
+    </div>
+  </div>
 </div>
 
 <script>
 "use strict";
+
+// ---------- auto-update (task 1): bump "v" in version.json to publish an update ----------
+(function(){
+  try{
+    fetch('version.json?ts='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(j){
+      var v=+j.v||1, seen=+(localStorage.getItem('myday_ver')||0);
+      if(seen===0){ localStorage.setItem('myday_ver', v); return; }
+      if(v>seen){ localStorage.setItem('myday_ver', v); location.replace(location.pathname+'?v='+v); }
+    }).catch(function(){});
+  }catch(e){}
+})();
+
 // ---------- data ----------
 function pm(s){var p=s.split(":");return (+p[0])*60+(+p[1]);}
 function hhmm(m){m=((m%1440)+1440)%1440;var h=Math.floor(m/60),x=m%60;return (h<10?"0":"")+h+":"+(x<10?"0":"")+x;}
 
 var SCEN=[
- {id:"pnsrpt", em:"🔥", name:"Пн · Ср · Пт", sub:"«Огонь» днём, 1 час",
+ {id:"pnsrpt", em:"🧘", name:"Пн · Ср · Пт", sub:"Йога длинная",
   blocks:[
    ["06:00","06:15","Пробуждение"],["06:20","06:35","Практика «Пранаяма»"],["06:40","07:00","Вода, туалет"],
    ["07:00","07:05","Измерение АД и пульса"],["07:10","08:55","Практика «Йога»"],["08:55","09:25","Практика «Биджамантра»"],
@@ -167,7 +191,7 @@ var SCEN=[
    ["14:05","Амлодипин, вода"],["15:00","Альфазокс"],["17:00","Нексиум + вода"],["19:00","Альфазокс"],
    ["21:00","ТромбоАСС, Липримар, Отрио, вода"],["21:30","Омник-окас, магний, вода"],["22:10","Альфазокс + Риалтрис-Моно"]]},
 
- {id:"vch1", em:"🏃", name:"Вт·Чт·Сб·Вс", sub:"«Огонь» утром 30 мин + кардио",
+ {id:"vch1", em:"🕡", name:"Вт · Чт · Сб", sub:"«Огонь» утром 30 мин + кардио",
   blocks:[
    ["06:00","06:15","Пробуждение"],["06:20","06:35","Практика «Пранаяма»"],["06:40","07:00","Вода, туалет"],
    ["07:05","07:35","Практика «Огонь»"],["07:40","07:45","Измерение АД и пульса"],["07:45","08:20","Практика «Йога»"],
@@ -183,7 +207,7 @@ var SCEN=[
    ["14:05","Амлодипин, вода"],["15:00","Альфазокс"],["17:00","Нексиум + вода"],["19:00","Альфазокс"],
    ["21:00","ТромбоАСС, Липримар, Отрио, вода"],["21:30","Омник-окас, магний, вода"],["22:10","Альфазокс + Риалтрис-Моно"]]},
 
- {id:"vch2", em:"🔥", name:"Вт·Чт·Сб·Вс", sub:"«Огонь» утром 1 час + кардио",
+ {id:"vch2", em:"🕧", name:"Вт · Чт · Сб", sub:"«Огонь» утром 1 час (без БМ) + кардио",
   blocks:[
    ["06:00","06:15","Пробуждение"],["06:20","06:35","Практика «Пранаяма»"],["06:40","07:00","Вода, туалет"],
    ["07:00","07:05","Измерение АД и пульса"],["07:10","07:50","Практика «Йога»"],["07:55","08:55","Практика «Огонь»"],
@@ -196,14 +220,32 @@ var SCEN=[
    ["22:15","22:30","Практика «Пранаяма»"],["22:35","22:40","Туалет"],["22:45","23:00","Подготовка ко сну"]],
   meds:[["07:50","Нексиум + вода"],["09:25","Кардосал, Кораксан, вода"],["10:25","Альфазокс + Риалтрис-Моно"],
    ["14:05","Амлодипин, вода"],["15:00","Альфазокс"],["17:00","Нексиум + вода"],["19:00","Альфазокс"],
+   ["21:00","ТромбоАСС, Липримар, Отрио, вода"],["21:30","Омник-окас, магний, вода"],["22:10","Альфазокс + Риалтрис-Моно"]]},
+
+ {id:"vs", em:"💤", name:"Вс", sub:"Без йоги, позднее пробуждение",
+  blocks:[
+   ["07:45","08:00","Пробуждение"],["08:05","08:20","Практика «Пранаяма»"],["08:25","08:45","Вода, туалет"],
+   ["08:45","08:50","Измерение АД и пульса"],["08:55","09:25","Практика «Биджамантра»"],["09:30","09:45","Приготовление завтрака"],
+   ["09:45","10:00","Завтрак, уборка"],["10:05","11:05","Практика «Огонь»"],["11:05","11:30","Трудовая деятельность"],
+   ["11:30","12:25","Гигиена, забота о теле"],["12:30","13:10","Практика «ГП»"],["13:15","13:30","Приготовление обеда"],
+   ["13:35","14:05","Обед, уборка"],["14:05","14:55","Трудовая деятельность"],["15:05","15:40","Трудовая деятельность"],
+   ["15:45","16:00","Практика «Мантра»"],["16:05","16:55","Пранаяма, Биджамантра"],["17:05","17:30","Приготовление ужина"],
+   ["17:35","18:00","Ужин, уборка"],["18:05","18:55","Трудовая деятельность"],["19:05","20:00","Прогулка («Уставание тела»)"],
+   ["20:05","20:25","Трудовая деятельность"],["20:30","21:30","Практика «Огонь»"],["21:35","22:05","Гигиена, забота о теле"],
+   ["22:15","22:30","Практика «Пранаяма»"],["22:35","22:40","Туалет"],["22:45","23:00","Подготовка ко сну"]],
+  meds:[["08:55","Нексиум + вода"],["10:00","Кардосал, Кораксан, вода"],["11:05","Альфазокс + Риалтрис-Моно"],
+   ["14:05","Амлодипин, вода"],["15:00","Альфазокс"],["17:00","Нексиум + вода"],["19:00","Альфазокс"],
    ["21:00","ТромбоАСС, Липримар, Отрио, вода"],["21:30","Омник-окас, магний, вода"],["22:10","Альфазокс + Риалтрис-Моно"]]}
 ];
-// precompute minutes
 SCEN.forEach(function(s){
   s.B=s.blocks.map(function(b){return {s:pm(b[0]),e:pm(b[1]),n:b[2],st:b[0],et:b[1]};});
   s.M=s.meds.map(function(m){return {t:pm(m[0]),n:m[1],ts:m[0]};});
   for(var i=0;i<s.B.length;i++){ s.B[i].ee = (i<s.B.length-1)? s.B[i+1].s : s.B[i].e; }
 });
+
+// ---------- course-end reminder (task 6) ----------
+var REMIND_FROM = new Date(2026,9,24); // 24.10.2026 (месяц с 24.09)
+function reminderActive(){ var d=new Date(); d.setHours(0,0,0,0); return d.getTime() >= REMIND_FROM.getTime(); }
 
 // ---------- state ----------
 var LS="myday_v1";
@@ -211,7 +253,7 @@ function today(){var d=new Date();return d.getFullYear()+"-"+(d.getMonth()+1)+"-
 function load(){try{return JSON.parse(localStorage.getItem(LS)||"{}");}catch(e){return {};}}
 function save(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){}}
 var st=load();
-if(st.date!==today()){ st={date:today(), scen:null, taken:[]}; save(st); }
+if(st.date!==today()){ st={date:today(), scen:null, taken:[], remDismiss:st.remDismiss}; save(st); }
 if(!st.taken) st.taken=[];
 
 // ---------- picker ----------
@@ -222,25 +264,20 @@ SCEN.forEach(function(s){
   el.onclick=function(){ startScen(s.id); };
   scards.appendChild(el);
 });
-function startScen(id){ st.date=today(); st.scen=id; st.taken=[]; save(st); requestWake(); show(); }
+function startScen(id){ st.date=today(); st.scen=id; st.taken=[]; save(st); show(); }
 
 // ---------- controls ----------
-document.getElementById("btnStop").onclick=function(){ st.scen=null; save(st); releaseWake(); show(); };
+document.getElementById("btnStop").onclick=function(){ st.scen=null; save(st); show(); };
 document.getElementById("btnSwitch").onclick=function(){ st.scen=null; save(st); show(); };
 document.getElementById("dayToggle").onclick=function(){
   var d=document.getElementById("daylist"), t=document.getElementById("dayToggle");
   if(d.classList.contains("hidden")){ d.classList.remove("hidden"); t.textContent="▴ Скрыть день"; renderDay(true); }
   else { d.classList.add("hidden"); t.textContent="▾ Показать весь день"; }
 };
+document.getElementById("remLater").onclick=function(){ document.getElementById("reminder").classList.add("hidden"); };
+document.getElementById("remOk").onclick=function(){ st.remDismiss=true; save(st); document.getElementById("reminder").classList.add("hidden"); };
 
-// wake lock
-var wl=null;
-var wakeChk=document.getElementById("wakeChk");
-wakeChk.checked = !!st.wake;
-wakeChk.onchange=function(){ st.wake=wakeChk.checked; save(st); if(st.wake) requestWake(); else releaseWake(); };
-function requestWake(){ if(!wakeChk.checked) return; if("wakeLock" in navigator){ navigator.wakeLock.request("screen").then(function(l){wl=l; l.addEventListener("release",function(){});}).catch(function(){}); } }
-function releaseWake(){ if(wl){ try{wl.release();}catch(e){} wl=null; } }
-document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="visible"){ requestWake(); tick(); } });
+document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="visible"){ tick(); } });
 
 // ---------- view switch ----------
 function cur(){ return SCEN.filter(function(s){return s.id===st.scen;})[0]; }
@@ -248,7 +285,10 @@ function show(){
   var running = st.scen && st.date===today();
   document.getElementById("picker").classList.toggle("hidden", !!running);
   document.getElementById("run").classList.toggle("hidden", !running);
-  if(running){ var s=cur(); document.getElementById("scenName").innerHTML=s.name+" <small>"+s.sub+"</small>"; tick(); }
+  if(running){
+    var s=cur(); document.getElementById("scenName").innerHTML=s.name+" <small>"+s.sub+"</small>"; tick();
+    if(reminderActive() && !st.remDismiss){ document.getElementById("reminder").classList.remove("hidden"); }
+  }
 }
 
 // ---------- tick / render ----------
@@ -260,20 +300,18 @@ function tick(){
   var s=cur(), now=nowMin();
   var d=new Date(); set("clock", hhmm(d.getHours()*60+d.getMinutes()));
 
-  var lastEnd = s.B[s.B.length-1].e; // 23:00
+  var lastEnd = s.B[s.B.length-1].e;
   var finished = now >= lastEnd;
   document.getElementById("active").classList.toggle("hidden", finished);
   document.getElementById("finished").classList.toggle("hidden", !finished);
 
   if(!finished){
-    // current index
     var idx=-1;
     for(var i=0;i<s.B.length;i++){ if(now>=s.B[i].s && now<s.B[i].ee){ idx=i; break; } }
     if(now < s.B[0].s) idx=-1;
 
     var prev=document.getElementById("prev"), next=document.getElementById("next"), curEl=document.getElementById("cur");
     if(idx===-1){
-      // before start
       curEl.querySelector(".name").textContent="Скоро начнём";
       curEl.querySelector(".time").textContent="";
       document.getElementById("curBar").style.width="0%";
@@ -297,12 +335,10 @@ function tick(){
     renderMed(s, now);
   }
   if(!document.getElementById("daylist").classList.contains("hidden")) renderDay(false);
-  set("foot","Идёт по реальным часам · до 23:00 · утром запусти заново");
 }
 
 function renderMed(s, now){
   var chip=document.getElementById("medchip"), take=document.getElementById("btnTake");
-  // overdue not taken (within 90 min back), else next upcoming
   var due=null, up=null;
   for(var i=0;i<s.M.length;i++){ var m=s.M[i];
     if(m.t<=now && st.taken.indexOf(m.t)<0 && (now-m.t)<=90){ due=m; }
@@ -333,7 +369,6 @@ function renderMed(s, now){
 function renderDay(scroll){
   var s=cur(); if(!s) return;
   var now=nowMin();
-  // merge blocks + meds
   var items=[];
   s.B.forEach(function(b){ items.push({t:b.s, ts:b.st, n:b.n, med:false, ee:b.ee}); });
   s.M.forEach(function(m){ items.push({t:m.t, ts:m.ts, n:"💊 "+m.n, med:true}); });
